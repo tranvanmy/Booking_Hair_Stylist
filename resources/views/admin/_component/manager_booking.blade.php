@@ -10,6 +10,9 @@
         <h1>
             {{ __('Booking') }}
         </h1>
+            <div class="col-md-2 select_booking">
+                <a href="{{ asset('admin/manager_booking') }}" target="_blank" class="btn btn-success"><i class="fa fa-keyboard-o" aria-hidden="true"></i> {{ __('Kanban') }}</a>
+            </div>
         <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i> {{ __('Home') }} </a></li>
           <li><a href="#"> {{ __('Manager') }}</a></li>
@@ -581,7 +584,7 @@
 @endsection
 
 @section('script')
-    {{ Html::script('js/admin/manager_booking.js') }}
+    {{ Html::script('js/admin/manage_list_booking.js') }}
     {{ Html::script('bower/AdminLTE/plugins/datatables/jquery.dataTables.min.js') }}
     {{ Html::script('bower/AdminLTE/plugins/datatables/dataTables.bootstrap.min.js') }}
     {{ Html::script('bower/bootstrap-fileinput/js/fileinput.min.js') }}

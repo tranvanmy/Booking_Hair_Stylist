@@ -10,13 +10,16 @@
         <h1>
             {{ __('Booking') }}
         </h1>
+        <div class="col-md-2 select_booking">
+            <a href="{{ asset('admin/list_booking') }}"  target="_blank" class="btn btn-success"> <i class="fa fa-list" aria-hidden="true"></i> {{ __('List') }}</a>
+        </div>
         <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i> {{ __('Home') }} </a></li>
           <li><a href="#"> {{ __('Manager') }}</a></li>
           <li class="active"> {{ __('Booking And Customer') }}</li>
       </ol>
   </section>
-  <section class="content " id="manager_booking">
+<section class="content " id="manager_booking">
     <div class="row">
       <div class="col-xs-12">
         <div class="box-header" style="position: relative;">
@@ -54,7 +57,7 @@
                 <div class="spinner"></div>
             </div>
             <div class="clearfix"></div>
-            <div class="box-body over-flow-edit">
+            <div class="box-body over-flow-edit manager_booking_kaban">
                 <div class="panel-group" id="accordion">
                     <div class="panel panel-default" v-for="item in items">
                         <div class="panel-heading">

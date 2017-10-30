@@ -66,6 +66,7 @@ var manage_service = new Vue({
         this.showDepar();
 
         this.showDateFrom();
+
         this.kanbanBoard();
         // popover
         setTimeout(function(){
@@ -233,7 +234,7 @@ var manage_service = new Vue({
                 $('.list-booking-indicator').addClass('hide');
             });
         },
-        
+
         changer_status(targetId, bookingId){
             this.changer_status_booking.status = targetId;
             this.changer_status_booking.id = bookingId;

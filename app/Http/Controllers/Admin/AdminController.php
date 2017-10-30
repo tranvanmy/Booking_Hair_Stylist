@@ -51,6 +51,11 @@ class AdminController extends Controller
     {
         return view('admin._component.manager_booking2');
     }
+
+    public function list_booking()
+    {
+        return view('admin._component.manager_booking');
+    }
     
     public function profile($id)
     { 

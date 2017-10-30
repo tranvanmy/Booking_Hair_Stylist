@@ -200,52 +200,31 @@ var manage_service = new Vue({
                 if(response.data.data[0].list_book.length > 0) {
                     response.data.data[0].list_book = this.curent_time(response.data.data[0].list_book);
                 }
-                let listBookings = response.data.data;
-
-                let groupBookingFormat = [];
-
-                for (let j = 0; j < listBookings.length; j++) {
-
-                    let listBooking = listBookings[j].list_book;
-                    let lengthBooking = listBooking.length;
-                    let groupBookings = {list_book: [], date_book: listBookings[j].date_book};
-                    let groupBooking = listBooking[0] ? [listBooking[0]] : [];
-
-                    for(let i = 1 ; i < lengthBooking; i++ ) {
-                        if (groupBooking[0].time_start == listBooking[i].time_start) {
-                            groupBooking.push(listBooking[i])
-                        } else {
-                            groupBookings.list_book.push(groupBooking);
-                            groupBooking = [listBooking[i]];
-                        }
-                    }
-
-                    groupBooking.length ? groupBookings.list_book.push(groupBooking) : '';
-                    groupBookingFormat.push(groupBookings);
-                }
                 this.start_date = response.data.data[0].startDate;
                 this.end_date = response.data.data[0].endDate;
 
-                this.$set(this, 'items', groupBookingFormat);
-               
+                // this.$set(this, 'items', groupBookingFormat);
+               this.$set(this, 'items', response.data.data);
+               console.log(this.items);
                 $('.list-booking-indicator').addClass('hide');
             }).catch(function (error) {
                 $('.list-booking-indicator').addClass('hide');
             });
         },
-        
-        changer_status(targetId, bookingId){
-            this.changer_status_booking.status = targetId;
-            this.changer_status_booking.id = bookingId;
+        changer_status(item){
+            this.changer_status_booking.status = item.status;
+            this.changer_status_booking.id = item.id;
+            this.changer_status_booking.message = item.message;
+            this.$set(this, 'status', this.changer_status_booking.status);
             $('#update_status').modal('show');
         },
 
-        update_status: function(targetId, bookingId){
+        update_status: function(id){
             var self = this;
             var authOptions = {
                     method: 'PUT',
-                    url: '/api/v0/change-status-booking/' + bookingId,
-                    params: {status: targetId, message: this.changer_status_booking.message},
+                    url: '/api/v0/change-status-booking/' + id,
+                    params: {status: this.changer_status_booking.status, message: this.changer_status_booking.message},
                     headers: {
                         'Authorization': "Bearer " + this.token.access_token,
                         'Content-Type': 'application/x-www-form-urlencoded'
@@ -253,13 +232,11 @@ var manage_service = new Vue({
                     json: true
                 }
 
-
             axios(authOptions).then((response) => {
                 this.changer_status_booking = {'id': '', 'status': ''},
-
+                 $('#update_status').modal('hide');
                     toastr.success('Update Booking Success', 'Success', {timeOut: 5000});
                     this.getBooking();
-                    $('#update_status').modal('hide');
             }).catch((error) => {
                     if (error.response.status == 403) {
                         self.formErrors = error.response.data.message;

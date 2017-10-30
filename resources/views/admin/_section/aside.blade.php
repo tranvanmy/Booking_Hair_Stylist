@@ -38,16 +38,32 @@
                         </a>
                     </li>
                     <li>
-                        <a href={{ asset('admin/manager_booking') }}><i class="fa fa-circle-o"></i>
-                            {{ __('Manager Booking') }}
-                        </a>
-                    </li>
-                    <li>
                         <a href={{ asset('admin/list_bill') }}><i class="fa fa-circle-o"></i>
                             {{ __('Manager Bill') }}
                         </a>
                     </li>
                 </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-table"></i> <span>{{ __('Booking') }}</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a href={{ asset('admin/manager_booking') }}><i class="fa fa-circle-o"></i>
+                            {{ __('Kaban Booking') }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href={{ asset('admin/list_booking') }}><i class="fa fa-circle-o"></i>
+                            {{ __('Lists Booking') }}
+                        </a>
+                    </li>
+                </ul>
+            </li>
             <li class="header">{{ __('SETTING')}}</li>
                 <li><a href="{{ asset('admin/manager_setting') }}"><i class="fa fa-wrench" aria-hidden="true"></i> <span>{{ __('Setting') }}</span></a></li>
             </li>

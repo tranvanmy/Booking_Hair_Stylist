@@ -25,6 +25,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin'], fu
     Route::get('home','AdminController@home');
     Route::get('manager_customer', 'AdminController@manager_customer')->name('customer');
     Route::get('manager_booking', 'AdminController@manager_booking')->name('booking');
+    Route::get('list_booking', 'AdminController@list_booking')->name('list_booking');
     Route::get('manager_department', 'AdminController@manager_department');
     Route::get('manager_setting', 'AdminController@manager_service')->name('manager_setting');
     Route::get('profile/{id}', 'AdminController@profile');
