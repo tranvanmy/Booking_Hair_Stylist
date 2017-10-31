@@ -440,7 +440,7 @@
                                                                         <label for="name" class="text-center label_bill">
                                                                             <i class="fa fa-user" aria-hidden="true"></i>
                                                                             <strong>
-                                                                                {{ __('Infor Customer') }}
+                                                                                {{ __('fa-info-circle Customer') }}
                                                                             </strong>
                                                                         </label>
                                                                     </div>
@@ -707,6 +707,25 @@
                                             </button>
                                         </div>
                                     </div>     
+                                </div>
+                            </div>
+
+                            <div class="form-group" v-if="bill.images">
+                                <div class="col-md-2">
+                                    <label for="name" class="text-center label_bill">
+                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                        <strong>
+                                            {{ __('Images') }}
+                                        </strong>
+                                    </label>
+                                </div>
+                                <div class="col-md-10 col-xs-10 flexbox-annotated-section-content" v-if="booking.id">
+                                        <div v-for="image in bill.images"> 
+                                            <a class="image-item" v-bind:href="'/'+image.path_origin" target="blank" >
+                                                <img v-bind:src="'/'+image.path_origin" class="img-thumbnail img-responsive"></a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </form>

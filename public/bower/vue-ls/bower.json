@@ -1,0 +1,47 @@
+{
+  "name": "vue-ls",
+  "version": "2.3.3",
+  "description": "Vue plugin for work with LocalStorage from Vue context",
+  "main": "dist/vue-ls.js",
+  "authors": [
+    "Igor Ognichenko <ognichenko.igor@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "vue-localstorage",
+    "vuejs-localstorage",
+    "vue-local-storage",
+    "vuejs-local-storage",
+    "vue-ls",
+    "vue",
+    "vuejs",
+    "vue-plugin",
+    "localstorage",
+    "local-storage",
+    "watch",
+    "persistance",
+    "es6-modules"
+  ],
+  "homepage": "https://github.com/RobinCK/vue-ls",
+  "ignore": [
+    ".idea",
+    ".git",
+    ".bowerrc",
+    ".gitignore",
+    ".travis.yml",
+    ".babelrc",
+    ".editorconfig",
+    ".npmignore",
+    "_config.yml",
+    "circle.yml",
+    "yarn.lock",
+    "package.json",
+    ".codeclimate.yml",
+    "node_modules",
+    "bower_components",
+    "CHANGELOG.md",
+    "test",
+    "tests",
+    "build"
+  ]
+}

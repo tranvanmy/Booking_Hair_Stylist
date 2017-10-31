@@ -263,16 +263,18 @@ class OrderBookingController extends Controller
             $date_filter = $currentDate->format('Y-m-d');
 
             $renderBookings = $this->renderBooking
-                ->getRenderByDate($date_filter, $filter_department, ['OrderBooking', 'Department']);
-
+                ->getRenderByDate($date_filter, $filter_department, ['OrderBooking', 'Department', 'OrderBooking.Images']);
+            
             $data['date_book'] = $currentDate->format(config('default.format_date'));
             $dataBooks = [];
             foreach ($renderBookings as $renderBooking) {
+
                 $department = [
                     'name' => $renderBooking->Department->name,
                     'address' => $renderBooking->Department->address,
                 ];
                 foreach ($renderBooking->OrderBooking as $orderBooking) {
+                    $images = $orderBooking->Images;
                     if (null !== $filter_status && !in_array($orderBooking->status, $filter_status)) {
                         continue;
                     }
@@ -287,6 +289,7 @@ class OrderBookingController extends Controller
                         ->find($orderBooking->stylist_id, ['name', 'email', 'phone']);
 
                     $dataBooks[] = $orderBooking;
+
                 }
             }
             $data['list_book'] = $dataBooks;
@@ -324,7 +327,7 @@ class OrderBookingController extends Controller
     {
         $response = Helper::apiFormat();
 
-        $booking = $this->orderBooking->checkLastBookingByPhone($request->phone);
+        $booking = $this->orderBooking->checkLastBookingByPhone($request->phone, ['Images', 'getOrderItems']);
         if(!$booking) {
             $response['error'] = true;
             $response['status'] = '404';
@@ -336,12 +339,14 @@ class OrderBookingController extends Controller
         $booking->render_booking = $this->renderBooking->find($booking->render_booking_id);
         $booking->department = $this->department->find($booking->render_booking->department_id);
         $booking->stylist = $this->user->find($booking->stylist_id);
-        $booking->order_items = $this->orderBooking->find($booking->id, ['getOrderItems'])->getOrderItems;
+        $booking->order_items = $booking->getOrderItems;
+        $booking->images = $booking->Images;
         $booking->grand_total = $this->orderItem->getGrandTotal($booking->id);
         foreach ($booking->order_items as $orderItem) {
                 $orderItem->stylist = $this->orderItem->find($orderItem->id, ['getStylist'])->getStylist['name'];
                 $orderItem->service = $this->orderItem->find($orderItem->id, ['getServiceProduct'])->getServiceProduct;
-            }  
+            }
+
         $response['data'] = $booking;
 
         return Response::json($response);

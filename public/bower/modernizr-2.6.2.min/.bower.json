@@ -1,0 +1,14 @@
+{
+  "name": "modernizr-2.6.2.min",
+  "_cacheHeaders": {
+    "ETag": "\"{4D166FC2-175D-4EEF-BC50-CD7D612EA407},4\"",
+    "Last-Modified": "Mon, 18 Aug 2014 17:03:10 GMT",
+    "Content-Length": "7483",
+    "Content-Type": "application/javascript"
+  },
+  "_release": "e-tag:{4D166FC2",
+  "main": "index.js",
+  "_source": "http://www.vale.com/EN/initiatives/innovation/valemax/Documents/valemax/_js/vendor/modernizr-2.6.2.min.js",
+  "_target": "*",
+  "_originalSource": "http://www.vale.com/EN/initiatives/innovation/valemax/Documents/valemax/_js/vendor/modernizr-2.6.2.min.js"
+}

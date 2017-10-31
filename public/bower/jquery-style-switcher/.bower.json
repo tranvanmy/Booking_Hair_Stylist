@@ -1,0 +1,14 @@
+{
+  "name": "jquery-style-switcher",
+  "homepage": "https://github.com/camsjams/jquery-style-switcher",
+  "version": "0.9.14",
+  "_release": "0.9.14",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.9.14",
+    "commit": "805dd68179f20ad1356da7b1cc704ac775c6530e"
+  },
+  "_source": "https://github.com/camsjams/jquery-style-switcher.git",
+  "_target": "^0.9.14",
+  "_originalSource": "camsjams/jquery-style-switcher"
+}

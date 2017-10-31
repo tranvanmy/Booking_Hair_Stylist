@@ -34,7 +34,7 @@ var Register = new Vue({
                  axios.post('/api/v0/register', input).then((response) => {
                     Vue.ls.set('token', response.data.data.token);
                     Vue.ls.set('user', response.data.data.user);
-                        window.location = '/site/home/';
+                    window.location = '/site/home/';
                  }).catch((error) => {
                     if (error.response.status == 403) {
                         self.formErrors = error.response.data.message;

@@ -1,0 +1,10 @@
+{
+  "name": "jsapi",
+  "_cacheHeaders": {
+    "Content-Type": "text/javascript; charset=utf-8"
+  },
+  "main": "index",
+  "_source": "https://www.google.com/jsapi",
+  "_target": "*",
+  "_originalSource": "https://www.google.com/jsapi"
+}

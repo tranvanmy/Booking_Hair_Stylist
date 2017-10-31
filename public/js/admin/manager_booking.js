@@ -29,7 +29,8 @@ var manage_service = new Vue({
                 'stylist_id': '',
                 'price': '',
                 'service_product_id': '',
-                'bill_items': []
+                'bill_items': [],
+                'images': [],
             },
         changer_status_booking:{'id': '', 'status': '', 'message': ''},
         billItem: {'qty': 1, 'price': '', 'stylist_id': '', 'service_product_id': '', 'order_booking_id': ''},
@@ -522,6 +523,8 @@ var manage_service = new Vue({
                 this.booking = response.data.data;
                 this.bill.order_booking_id = this.booking.id;
                 this.bill.order_id = this.booking.id;
+                this.bill.images = response.data.data.images;
+                console.log(this.bill.images);
                 this.billItem.order_booking_id = this.booking.id;
                 this.formErrors.phone = '';
                 this.getListBill(this.booking.id);
